@@ -29,12 +29,12 @@ public class Breaking_BadResource {
         return bbJSON;
     }
     
-    @Path("/{numberofjokes}")
+    @Path("/{numberofquotes}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getByNumber(@PathParam("numberofjokes") int numberofjokes) throws IOException {
+    public String getByNumber(@PathParam("numberofquotes") int numberofquotes) throws IOException {
         Gson gson = new Gson();
-        String url = ("https://breaking-bad-quotes.herokuapp.com/v1/quotes" + "/" + numberofjokes);
+        String url = ("https://breaking-bad-quotes.herokuapp.com/v1/quotes" + "/" + numberofquotes);
         String bb = HttpUtils.fetchData(url);
         Breaking_BadDTO[] bbDTO = gson.fromJson(bb, Breaking_BadDTO[].class);
         String bbJSON = gson.toJson(bbDTO);
